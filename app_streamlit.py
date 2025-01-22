@@ -57,10 +57,12 @@ if st.button("Predict Price"):
     }
 
     # Debugging: Print values to check if they update
-    st.write("🔍 Sending this data to API:", data)
+    #st.write("🔍 Sending this data to API:", data)
 
-    # Call Flask API
-    response = requests.post("http://127.0.0.1:5000/predict", json=data)
+    # Call API
+    API_URL = "https://house-price-predictor-2dhx.onrender.com/predict"
+    response = requests.post(API_URL, json=data)
+
 
     if response.status_code == 200:
         prediction = response.json()['predicted_price']
