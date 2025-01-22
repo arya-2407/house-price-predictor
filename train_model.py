@@ -23,6 +23,9 @@ y = df['Price']  # Target variable
 # Split data (80% train, 20% test)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+joblib.dump(X_train.columns.tolist(), 'feature_names.pkl')
+print("✅ Feature names saved.")
+
 # Apply Standard Scaling (Only to numerical features)
 numerical_features = ["SqFt", "Lot_Area", "Year_Built", "Bedrooms", "Bathrooms", "Garage", "Price_per_SqFt", "House_Age"]
 scaler = StandardScaler()
